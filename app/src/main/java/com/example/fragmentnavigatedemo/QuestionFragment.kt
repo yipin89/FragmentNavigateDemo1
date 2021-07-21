@@ -82,11 +82,17 @@ class QuestionFragment : Fragment() {
 
                 } else {
                     // todo:: navigate to thankyou fragment
-                    Navigation.findNavController(it).navigate(R.id.action_questionFragment_to_thankYouFragment)
+                    val percentage : Float = (score /2.0F) * 100
+                    val action= QuestionFragmentDirections.actionQuestionFragmentToThankYouFragment(percentage)
+                    Navigation.findNavController(it).navigate(action)
+
+
                 }
             }else{
                 Toast.makeText(context, "please select answer", Toast.LENGTH_LONG).show()
             }
+
+
         }
         return binding.root
     }
